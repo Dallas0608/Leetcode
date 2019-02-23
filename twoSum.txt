@@ -1,0 +1,40 @@
+class Solution{
+public:
+	vector<int> twoSum(vector<int>& nums, int target){
+		vector<int> result;
+		int temp = target;
+		for(int i=0;i<nums.size();i++)
+		{
+			if(temp-nums[i]>=0)
+			{
+				result.push_back(i);
+				temp = temp-nums[i];
+			}
+				
+		}
+		return result;
+	}
+}
+//自己写的 只考虑了一种片面的情况没有考虑到可能前两个数加起来也比target小
+
+
+
+class Solution{
+public：
+	vector<int> twoSum(vector<int> &nums, int target){
+		unordered_map<int, int> hash;
+		vector<int> result;
+		for(int i = 0; i<nums.size();i++){
+			int numsToFind = target -nums[i];
+			
+			if(hash.find(numberToFind)!=hash.end()){
+				result.push_back(hash[numberToFind]);
+				cout<<hash[numberToFind];
+				cout<<i;
+				result.push_back(i)
+				return result;
+				}
+			hash[nums[i]]=i;
+		}
+	}return result;
+}
