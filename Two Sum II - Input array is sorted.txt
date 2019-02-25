@@ -1,0 +1,62 @@
+﻿class Solution{
+public:
+	vector<int> twoSum2(vector<int>& nums, int target){
+		unordered_map<int, int> hash;
+		vector<int> result;
+		for(int i=0;i<nums.size();i++){
+			
+			if(hash.find（target-nums[i])!=hash.end(){
+				if(nums[i]>target-nums[i]){
+					result.push_back(hash[target-nums[i]]+1);
+					result.push_back(i+1);
+					return result;
+				}
+			}
+			hash[nums[i]]=i;
+		}
+		return result;
+	}
+}
+//经常写完就忘了if 之后得else 
+// 因为要按顺序 所以 后面得if 需要在大于得时候排在后面
+
+class Solution{
+public:
+	vector<int> twoSum(vector<int>& nums, int target){
+		unordered_map<int, int> hash;
+		vector<int> result;
+		for(int i=0;i<nums.size();i++){
+			
+			if(hash.find(target-nums[i])!=hash.end()){
+				if(nums[i]>=target-nums[i]){  //这里需要等于 不能留在后面
+					result.push_back(hash[target-nums[i]]+1);
+					result.push_back(i+1);
+					return result;
+				}
+                else
+                {
+                    result.push_back(i+1);
+                    result.push_back(hash[target-nums[i]]+1);	
+					return result;
+                }
+			}
+			hash[nums[i]]=i;
+		}
+		return result;
+	}
+};
+//前面是借鉴twoSum用unordered_map的思路 下面这个运行速度更快
+
+class Solution{
+public:
+    vector<int> twoSum(vector<int>& A, int target) {
+        for (int i = 0, j = A.size() - 1;;) 
+            if (A[i] + A[j] < target) 
+                ++i;
+            else if(A[i] + A[j] > target) 
+                --j;
+            else return {i + 1, j + 1};
+}
+};
+// 即判断一个数组 首尾相加是否等于target  如果小于target 首位向前进一位  如果大于 尾位向后退一位 
+//注意这里巧妙得利用了++i这种思路 没有立即改变i得值 是之后得判断维持原样。
