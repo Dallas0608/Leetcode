@@ -1,0 +1,30 @@
+#include<iostream>
+
+using namespace std;
+
+class Tree{
+	public:
+		Tree(int age);
+		void grow(int years);
+		void age();
+	private:
+		int ages;
+}; //这里需要分号
+Tree::Tree(int age){ //形参名不能和成员变量名一样。否则等于没赋值。
+	ages = age;
+}
+void Tree::grow(int years){
+	ages = ages + years;
+}
+void Tree::age(){
+	cout<<"age:"<<ages<<endl;
+	
+}
+int main(){
+	
+	Tree tree(5);
+	tree.age();
+	tree.grow(5);
+	tree.age();
+	return 0;
+}

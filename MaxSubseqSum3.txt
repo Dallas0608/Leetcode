@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+	
+	return 0;
+}
+/*
+ ###第一种方法
+ ###简单粗暴的把所有子序列都加起来比较最大的那个数
+*/
+int MaxSubseqSum1(int list[], int N){
+	int ThisSum,MaxSum=0;
+	for (int i = 0;i<N;i++){
+		for(int j = i;j<N;j++) 
+		{
+			ThisSum = 0;
+			for(in k=i;k<j;k++)
+				ThisSum += list[k];
+			if(ThisSum > MaxSum)
+				MaxSum = ThisSum;
+		}
+	}
+	return MaxSum;
+}
+/*
+ ###第二种方法和第一种相同也是计算全部的子序列的值
+ ###感觉第二种方法是普通人想到的 第一种方法有一种多次一举的感觉
+*/
+int MaxSubseqSum2(int list[], int N){
+	int ThisSum,MaxSum=0;
+	for(int i=0;i<N;i++){
+		ThisSum = 0;
+		for(int j=i;j<N;j++){
+			ThisSum += list[j];
+		}
+		if(ThisSum>MaxSum)
+			MaxSum = ThisSum;
+	}
+	return MaxSum;
+}
+/*
+ ###第三种方法是运用递归 不停对的子序列中间二分 直到剩下一个元素为止
+ 
+*/
+int Max3(int A,int B,int C){
+	return A>B ? (A>C ? A:C) : (B>C ? B:C)
+}
+int MaxSubseqSum3(int list[], int N){
+	
+}

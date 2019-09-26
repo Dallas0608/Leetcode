@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+class Apple{
+ public:
+    Apple(){i=10;}
+    void display(){ cout<<"Apple:i="<<i<<endl; }
+ private:
+    int i;
+    friend class Pear;
+};
+  
+class Pear{
+ public:
+    void print1(Apple A){ 
+    	A.i++;  //当没有友元函数的时候，类外是不能访问私有成员的，必须调用成员函数才可以。
+        cout<<"print1:A="<<A.i<<endl;
+    	
+    };
+    void print2(Apple A)
+     {A.i--; 
+     cout<<"print2:A="<<A.i<<endl;};
+};
+  
+int  main()
+{  Apple a;
+   Pear p;
+   a.display();
+   p.print1(a);
+   p.print2(a);
+   a.display();
+   return 0;
+}

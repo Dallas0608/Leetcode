@@ -1,0 +1,29 @@
+//二分查找
+//代码中的判决与数组的大小顺序有关
+//希望是递增或者递减的
+int Bi_search(int list[], int low, int high, int target){
+	if(low>high)
+		return -1;
+	int mid = (high+low)/2;
+	if(target > list[mid])
+		return Bi_search(list, mid+1, high, target);
+	if(target<list[mid])
+		return Bi_search(list, low, mid-1, target);
+	return mid;
+}
+
+//不使用递归
+
+int B_search(int list[], int low, int high, int target){
+	while(low <= high)
+	{
+		int mid = (high+low)/2;
+		if(target > list[mid])
+			low = mid + 1;
+		else if(target < list[mid])
+			high = mid - 1;
+		else 
+			return mid;
+	}
+	return -1;
+}

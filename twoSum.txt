@@ -32,8 +32,9 @@ public：
 				result.push_back(i)
 				return result;
 				}
-			hash[nums[i]]=i;
+			hash[nums[i]]=i;  //无论 hash查找得到不到 都要运行
 		}
 	return result;
 	}
 }
+//这个算法的思路其实是：查找相减的元素是否在unordered_map表中，如果不在，写入表中。如果在，将表中的元素所在的位置和自己所在的idex 返回给结果。
